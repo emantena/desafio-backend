@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-10">
+    <h2>Pedidos</h2>
+  </div>
+  <div class="col-md-2">
+    <a [routerLink]="['/order/create']" class="btn btn-primary" cButton>
+      adicionar
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="card mt-4" *ngFor="let item of orders; index as i">
+    <div class="card-body">
+      <h3 class="card-title">Pedido: {{ item.orderId }}</h3>
+
+      <p class="card-text">Entregador: {{ item.deliveryManName }}</p>
+      <p class="card-text">Valor da corrida: {{ item.racePrice }}</p>
+      <p class="card-text">Status: {{ item.status }}</p>
+    </div>
+  </div>
+</div>

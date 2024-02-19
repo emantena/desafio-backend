@@ -1,0 +1,77 @@
+<div class="container mt-4">
+  <h2>Verificar Preço</h2>
+
+  <form [formGroup]="rentVehicleForm">
+    <div class="form-group mb-3" (ngSubmit)="rentVehicle()">
+      <label for="plan">Selecione um Plano:</label><br />
+      <select
+        id="plan"
+        name="plan"
+        required
+        (change)="selectedPlan($event)"
+        formControlName="planId"
+      >
+        <option
+          *ngFor="let plan of plans; index as i"
+          [value]="plan.planVersionId"
+        >
+          {{ plan.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="startDate">Data de Início:</label>
+      <input
+        type="date"
+        class="form-control"
+        formControlName="startDate"
+        id="startDate"
+      />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="endDate">Data de Fim:</label>
+      <input
+        type="date"
+        class="form-control"
+        formControlName="endDate"
+        id="endDate"
+      />
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="checkPrice()">
+      Verificar Preço
+    </button>
+  </form>
+
+  <div class="row">
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">
+      {{ errorMessage }}
+    </div>
+  </div>
+
+  <div *ngIf="result" class="card mt-4">
+    <div class="card-body">
+      <h3 class="card-title">Custo estimado da locação</h3>
+      <p class="card-text">
+        Preço do Plano: ${{ result.planPrice.toFixed(2) }}
+      </p>
+      <p class="card-text">
+        Total de Dias de Locação: {{ result.totalDaysLocation }}
+      </p>
+      <p class="card-text">Custo Total: ${{ result.totalCost.toFixed(2) }}</p>
+      <p class="card-text">
+        Multa Diária: ${{ result.dailyLateFee.toFixed(2) }}
+      </p>
+      <p class="card-text">
+        Custo Adicional: ${{ result.additionalCharge.toFixed(2) }}
+      </p>
+      <p>
+        <button type="button" class="btn btn-primary" (click)="rentVehicle()">
+          Quero esse!!!
+        </button>
+      </p>
+    </div>
+  </div>
+</div>

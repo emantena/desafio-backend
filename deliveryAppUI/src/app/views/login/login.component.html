@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h1>Login</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="autenticar()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">
+          {{ errorMessage }}
+        </div>
+
+        <div class="row" sytle="margin-top: 15px">
+          <p>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

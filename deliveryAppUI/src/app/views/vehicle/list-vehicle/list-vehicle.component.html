@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-10">
+    <h2>Veículos</h2>
+  </div>
+  <div class="col-md-2">
+    <a
+      [routerLink]="['/vehicle/create']"
+      class="btn"
+      style="float: inline-end"
+      cButton
+    >
+      adicionar
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Pesquisar por placa"
+        [(ngModel)]="searchPlate"
+      />
+    </div>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-primary" (click)="searchVehicles()">
+      Pesquisar
+    </button>
+  </div>
+</div>
+<p></p>
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">
+  {{ errorMessage }}
+</div>
+<p></p>
+<div class="row">
+  <div class="col-md-4" *ngFor="let vehicle of vehicles; index as i">
+    <div class="card mb-4">
+      <div class="card-header">
+        {{ vehicle.model.brand.brand }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ vehicle.model.model }}</h5>
+        <p class="card-text">Placa: {{ vehicle.plate }}</p>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="btn btn-primary" (click)="editVehicle(vehicle)">
+              Editar
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-danger" (click)="deleteVehicle(vehicle)">
+              Excluir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

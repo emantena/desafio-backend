@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h2>Upload de Imagem</h2>
+  <form>
+    <div class="form-group">
+      <label for="file">Escolha uma imagem:</label>
+      <input
+        type="file"
+        id="file"
+        (change)="selectFile($event)"
+        class="form-control-file"
+      />
+    </div>
+
+    <!-- <button type="button" class="btn btn-primary" (click)="onUpload()">
+      Fazer Upload
+    </button> -->
+  </form>
+</div>
