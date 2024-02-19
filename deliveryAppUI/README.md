@@ -5,3 +5,11 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 ## Servidor de Desenvolvimento
 
 Execute `ng serve` para iniciar um servidor de desenvolvimento. Acesse `http://localhost:4200/` no navegador. A aplicação será recarregada automaticamente se você modificar algum dos arquivos de origem.
+
+Login Admin:
+admin@email.com
+Teste@123
+
+Login Entregador:
+deliveryman@email.com
+Teste@123
